@@ -1,0 +1,51 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+\title{Fracture Mechanics: Brittle vs. Ductile Materials}
+\author{Prateeksha Sharma}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This article compares fracture mechanisms in brittle and ductile materials, and discusses the energy-based criteria, stress intensity factors, plastic zone effects, and microstructural influences. 
+\end{abstract}
+
+\section{Introduction}
+Fracture in materials depends on the brittleness and ductility of that material. Brittle materials fracture suddenly with no warning and show no plastic behaviour while ductile materials undergo a significant plastic deformation before fracture, and give a warning before failure.
+\section{Fundamentals: Energy Release Rates and Stress Intensity}
+
+In Linear Elastic Fracture Mechanics (LEFM), the strain energy release rate \(G\) and the stress intensity factor \(K\) are foundational. \(G\) and \(K_I\) are connected as follows:
+\[
+G = \frac{K_I^2}{E} \quad (\text{plane stress}), \quad G = \frac{(1 - \nu^2)K_I^2}{E}\ (\text{plane strain})
+\]  
+LEFM assumes small-scale yielding and minimal plastic zone at the crack tip.
+
+\section{Brittle Fracture Mechanisms}
+Brittle fracture occurs with minimal plastic deformation. Griffith’s criterion relates critical stress to surface energy:  
+\[
+\sigma_c = \sqrt{\frac{2E\gamma}{\pi a}}
+\]  
+Material failure is triggered when \(K_I\) exceeds fracture toughness \(K_{Ic}\).
+
+\section{Ductile Fracture Mechanisms}
+Ductile fracture involves fracture nucleation and growth. There is a  microstructural influence on cleavage fracture in ductile metals, while there is void in ductile failure process.
+
+\section{Stress Triaxiality and Fracture Mode}
+Stress triaxiality is the ratio of mean hydrostatic stress to equivalent von Mises stress. It influences fracture behavior. High triaxiality favors brittle cleavage, while low levels may lead to ductile failure.
+
+\section{Discussion}
+The difference between brittle and ductile fractures in energy dissipation, growth of cracks and at microstructural level. Therefore it is important to understand both mechanisms for accurate failure prediction. 
+
+\section{Conclusion}
+Thus, fracture mechanics provides a framework for analyzing both brittle and ductile failure through energy methods and intensity factors. 
+
+\section*{References}
+\begin{itemize}
+  \item “Fracture mechanics.” Wikipedia. 
+  
+\end{itemize}
+
+\end{document}
