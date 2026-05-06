@@ -1,0 +1,92 @@
+\documentclass[12pt,a4paper]{article}
+
+% Packages
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{hyperref}
+\usepackage{titlesec}
+
+% Formatting
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
+
+% Title
+\title{\textbf{Column Buckling and Effective Length in Steel Structures}}
+\author{Prateeksha Sharma}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Column buckling is a fundamental problem in steel structures, where a compression member can fail at loads lower than its yield capacity due to instability. This article discusses Euler's buckling theory and the concept of effective length.
+\end{abstract}
+
+\section{Introduction}
+Columns are compressive load carrying members in steel structures. The faiklure modes in columns can be material yielding for stocky columns while the slender columns often fail by bucknling, a sudden lateral deflection under compressive axial load.
+
+\section{Euler's Buckling Theory}
+For an ideal, perfectly straight column with pinned ends and subjected to a concentric axial load, Leonhard Euler derived the critical buckling load as:
+\begin{equation}
+    P_{cr} = \frac{\pi^2 E I}{(K L)^2}
+\end{equation}
+where:
+\begin{itemize}
+    \item $E$ = modulus of elasticity,
+    \item $I$ = least moment of inertia,
+    \item $L$ = actual column length,
+    \item $K$ = effective length factor.
+\end{itemize}
+
+\subsection{Slenderness Ratio}
+The slenderness ratio is defined as:
+\begin{equation}
+    \lambda = \frac{K L}{r}
+\end{equation}
+where $r = \sqrt{I/A}$ is the radius of gyration. Columns with high $\lambda$ values are more prone to buckling.
+
+\section{Effective Length Factor}
+The effective length factor $K$ accounts for end boundary conditions:
+\begin{itemize}
+    \item Pinned–Pinned: $K = 1.0$
+    \item Fixed–Fixed: $K \approx 0.5$
+    \item Fixed–Free (cantilever): $K = 2.0$
+    \item Fixed–Pinned: $K \approx 0.7$
+\end{itemize}
+In real structures, $K$ is influenced by frame stiffness, member continuity, and joint rigidity.
+
+\section{Inelastic Buckling}
+When $\lambda$ is moderate, yielding may occur before elastic buckling. The inelastic buckling capacity can be estimated using empirical design curves.
+
+\section{LRFD Design Procedure}
+According to AISC 360-16, the nominal compressive strength $P_n$ is:
+\begin{equation}
+    P_n =
+    \begin{cases}
+        F_{cr} A_g & \text{if elastic buckling governs}, \\
+        F_{cr} A_g & \text{if inelastic buckling governs},
+    \end{cases}
+\end{equation}
+where:
+\[
+F_{cr} = 
+\begin{cases}
+0.658^{F_y / F_e} F_y & \text{if } \lambda_c \leq 1.5, \\
+0.877 F_e & \text{if } \lambda_c > 1.5
+\end{cases}
+\]
+and $F_e = \frac{\pi^2 E}{(K L / r)^2}$ is the elastic critical stress.
+
+\section{Conclusion}
+Effective length factor K is essential for accurate column design as it affects the buckling capacity. It is influenced by frame stability, joint stiffness and end conditions. Accurate K values result in efficient designs whereas conservative assumptions ensure more safety.
+\section*{References}
+\begin{enumerate}
+    \item AISC 360-16, \textit{Specification for Structural Steel Buildings}.
+    \item Geschwindner, L. F. (2012). Unified design of steel structures (2nd ed.). John Wiley & Sons.
+    
+\end{enumerate}
+
+\end{document}
