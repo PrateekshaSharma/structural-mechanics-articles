@@ -1,0 +1,80 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{hyperref}
+\geometry{margin=1in}
+
+\title{Direct Analysis Method vs. Effective Length Method: A Literature Review}
+\author{Prateeksha Sharma}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+There are two primary methods for steel frame stability design: the Direct Analysis Method (DAM) and the Effective Length Method (ELM). This literature review compares their theoretical formulations, code provisions, advantages, limitations, and current trends in practice.
+\end{abstract}
+
+\section{Introduction}
+Steel structures are prone to global and local buckling phenomena. The Effective Length Method (ELM), which relies on the effective length factor $K$, has traditionally been the primary method. In contrast, the Direct Analysis Method (DAM) incorporates geometric imperfections, stiffness reduction, and second-order effects without relying on the $K$-factor. This review compares the theoretical formulation, code implementation, and practical implications of both methods for steel frame design.
+
+\section{Effective Length Method (ELM)}
+The critical buckling load using Euler's formula in ELM is:
+\begin{equation}
+P_{cr} = \frac{\pi^2 E I}{(K L)^2}
+\end{equation}
+where:  
+\begin{itemize}
+    \item $E$ = modulus of elasticity,  
+    \item $I$ = moment of inertia,  
+    \item $L$ = unbraced length,  
+    \item $K$ = effective length factor.  
+\end{itemize}
+
+ELM is convenient for hand calculations, making it useful for preliminary design. However, it requires accurate $K$ values, which can be difficult to determine, and unconservative results may occur when boundary conditions are not ideal.
+
+\section{Direct Analysis Method (DAM)}
+In DAM, $K=1$ is assumed for all members. The method incorporates:
+\begin{itemize}
+    \item \textbf{Stiffness reduction:} either using the $\tau_b$ factor or a reduced modulus $E^\ast = 0.8E$.  
+    \item \textbf{Second-order effects:} global ($P$--$\Delta$) and local ($P$--$\delta$) effects must be included.  
+    \item \textbf{Notional loads:} small lateral loads, typically $0.002$ times the gravity load, to account for geometric imperfections.  
+\end{itemize}
+Thus, this method provides more realistic capacity predictions.
+
+\section{Comparative Findings}
+The main differences between these two methods are:
+\begin{itemize}
+    \item ELM is often used for regular braced frames and relies heavily on $K$ factors.  
+    \item DAM is more appropriate for complex or high-rise frames, as it explicitly accounts for imperfections and second-order effects.  
+    \item Designs produced using DAM are generally more conservative (larger member sizes) compared to ELM, due to stiffness reduction and inclusion of second-order effects.  
+\end{itemize}
+
+\section{Practical Implications}
+ELM is efficient for hand calculations in simple frames, whereas DAM is more suitable when computer-based analysis is available. AISC provisions encourage or require the use of DAM in order to ensure reliable performance under lateral loads.
+
+\section{Literature Gaps}
+Few studies have compared the economic implications, life-cycle costs, or constructability aspects of ELM versus DAM. More research in these areas could strengthen the case for broader adoption of DAM in global practice.
+
+\section{Conclusion}
+Both ELM and DAM are valid approaches for steel frame stability design and are permitted in the AISC code. ELM is suitable for simple frames and preliminary design, whereas DAM is favored for complex geometries and irregular loading conditions. With the increasing availability of computational tools, DAM is expected to become the preferred stability design method in the future.
+
+\bibliographystyle{ieeetr}
+\begin{thebibliography}{9}
+
+\bibitem{aisc} 
+American Institute of Steel Construction, 
+\textit{Specification for Structural Steel Buildings}, Appendix 7, AISC, Chicago, IL.
+
+\bibitem{csi_kb} 
+Computers and Structures Inc., 
+``AISC Direct Analysis Method,'' CSI Knowledge Base. 
+
+\bibitem{autodesk} 
+Autodesk, 
+``Direct Analysis Method,'' Whitepaper.
+\end{thebibliography}
+
+\end{document}
+
