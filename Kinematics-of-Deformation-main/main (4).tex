@@ -1,0 +1,105 @@
+\documentclass[12pt,a4paper]{article}
+
+% Packages
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{graphicx}
+\usepackage{physics}
+\usepackage{bm}
+\usepackage{hyperref}
+\usepackage{titlesec}
+
+% Formatting
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
+
+% Title
+\title{\textbf{Kinematics of Deformation}}
+\author{Prateeksha Sharma}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This article presents the kinematics of deformation for continuous media, covering motion mappings, displacement fields, the deformation gradient, strain measures in small and finite deformation regimes, polar decomposition, and rate kinematics. Short illustrative examples (uniaxial stretch and simple shear) connect abstract tensors to physical deformation.
+\end{abstract}
+
+\section{Introduction}
+Kinematics describes motion and deformation \emph{without} reference to forces or material behavior. This article presents the kinematics of deformation in continuum. It shows the concepts of mapping, displacement fields, the deformation gradient, strain measures in small and finite deformation regimes and polar decomposition.
+
+
+\section{Motion and Configurations}
+Let $\mathcal{B}$ denote a body with reference (material) coordinates $\mathbf{X}$ in configuration $\mathcal{B}_0$ and spatial coordinates $\mathbf{x}$ in configuration $\mathcal{B}_t$ at time $t$. The motion is a mapping
+\begin{equation}
+\boldsymbol{\varphi}(\mathbf{X},t): \ \mathcal{B}_0 \to \mathcal{B}_t,\qquad \mathbf{x} = \boldsymbol{\varphi}(\mathbf{X},t).
+\end{equation}
+The \emph{displacement} in Lagrangian description is
+\begin{equation}
+\mathbf{u}(\mathbf{X},t) = \boldsymbol{\varphi}(\mathbf{X},t) - \mathbf{X}.
+\end{equation}
+Velocity and acceleration in Eulerian (spatial) form are
+\begin{equation}
+\mathbf{v}(\mathbf{x},t) = \pdv{\boldsymbol{\varphi}}{t}(\mathbf{X},t),\qquad \mathbf{a}(\mathbf{x},t) = \pdv[2]{\boldsymbol{\varphi}}{t}(\mathbf{X},t),
+\end{equation}
+evaluated at $\mathbf{X}=\boldsymbol{\varphi}^{-1}(\mathbf{x},t)$.
+
+\section{Deformation Gradient and Volume Change}
+The fundamental kinematic quantity is the \emph{deformation gradient}
+\begin{equation}
+\mathbf{F}(\mathbf{X},t) = \Grad_{\!\mathbf{X}} \boldsymbol{\varphi}(\mathbf{X},t) = \mathbf{I} + \Grad_{\!\mathbf{X}}\mathbf{u}(\mathbf{X},t).
+\end{equation}
+It maps material line elements $\mathrm{d}\mathbf{X}$ to spatial line elements $\mathrm{d}\mathbf{x}$ via $\mathrm{d}\mathbf{x} = \mathbf{F}\,\mathrm{d}\mathbf{X}$. The local volume change is characterized by the Jacobian
+\begin{equation}
+J = \det \mathbf{F} \quad\Rightarrow\quad \mathrm{d}v = J\,\mathrm{d}V.
+\end{equation}
+Incompressibility implies $J=1$.
+
+\section{Strain Measures}
+Strain measures quantify changes in lengths and angles. Two broad regimes are used.
+
+\subsection{Small (Infinitesimal) Strain}
+When $\|\Grad \mathbf{u}\|\ll 1$, the \emph{small strain tensor} is
+\begin{equation}
+\boldsymbol{\varepsilon} = \dfrac{1}{2}\left(\Grad \mathbf{u} + \Grad \mathbf{u}^{T}\right),
+\end{equation}
+with engineering shear strains $\gamma_{ij}=2\varepsilon_{ij}$. This linear measure underpins classical linear elasticity.
+
+\subsection{Finite Strain (Nonlinear Kinematics)}
+Define the right and left Cauchy--Green tensors
+\begin{equation}
+\mathbf{C} = \mathbf{F}^{T}\mathbf{F}, \qquad \mathbf{B} = \mathbf{F}\mathbf{F}^{T}.
+\end{equation}
+The \emph{Green--Lagrange strain} (material measure) and \emph{Almansi strain} (spatial measure) are
+\begin{equation}
+\mathbf{E} = \dfrac{1}{2}(\mathbf{C}-\mathbf{I}), \qquad \mathbf{e} = \dfrac{1}{2}(\mathbf{I}-\mathbf{B}^{-1}).
+\end{equation}
+For small deformations, $\mathbf{E}\approx \boldsymbol{\varepsilon}$ and $\mathbf{e}\approx \boldsymbol{\varepsilon}$.
+
+\section{Polar Decomposition and Principal Stretches}
+Any invertible $\mathbf{F}$ admits the polar decompositions
+\begin{equation}
+\mathbf{F} = \mathbf{R}\,\mathbf{U} = \mathbf{V}\,\mathbf{R},
+\end{equation}
+where $\mathbf{R}$ is a proper orthogonal rotation, $\mathbf{U}$ is the right stretch, and $\mathbf{V}$ the left stretch. The eigenvalues of $\mathbf{U}$ (or $\mathbf{V}$) are the \emph{principal stretches} $\lambda_i>0$; then $J=\lambda_1\lambda_2\lambda_3$ and
+\begin{equation}
+\mathbf{C} = \mathbf{U}^2,\quad \mathbf{B}=\mathbf{V}^2,\quad \mathbf{E}=\dfrac{1}{2}(\mathbf{U}^2-\mathbf{I}).
+\end{equation}
+
+\section{Rate Kinematics: Velocity Gradient, Stretching, and Spin}
+Let $\dot{\mathbf{F}}=\mathrm{D}\mathbf{F}/\mathrm{D}t$ following the motion. The \emph{velocity gradient} in spatial form is
+\begin{equation}
+\mathbf{L} = \grad_{\!\mathbf{x}}\mathbf{v} = \dot{\mathbf{F}}\,\mathbf{F}^{-1}.
+\end{equation}
+It splits uniquely into symmetric and skew-symmetric parts
+\begin{equation}
+\mathbf{L} = \mathbf{D} + \mathbf{W},\qquad \mathbf{D}=\dfrac{1}{2}\left(\mathbf{L}+\mathbf{L}^T\right),\quad \mathbf{W}=\dfrac{1}{2}\left(\mathbf{L}-\mathbf{L}^T\right),
+\end{equation}
+where $\mathbf{D}$ is the \emph{rate of deformation} (stretching) and $\mathbf{W}$ is the \emph{spin}. Incompressibility implies $\tr\mathbf{D}=0$ since $\dot{J}=J\,\tr\mathbf{D}$.
+
+\section{Conclusion}
+Kinematics forms the foundation of continuum mechanics. The deformation gradient $\mathbf{F}$, along with its polar factors and associated strain measures, provides a framework to model everything from linear elasticity to large-deformation hyperelasticity and plasticity. 
+
+
+\end{document}
