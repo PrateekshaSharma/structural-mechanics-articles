@@ -1,0 +1,81 @@
+\documentclass[12pt,a4paper]{article}
+
+% Packages
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{graphicx}
+\usepackage{physics}
+\usepackage{bm}
+\usepackage{hyperref}
+\usepackage{titlesec}
+
+% Formatting
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
+
+% Title
+\title{\textbf{Cauchy’s Stress Principle and Equilibrium Equations}}
+\author{Prateeksha Sharma}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Cauchy’s Stress Principle is a concept in continuum mechanics which states that the state of stress at a point within a material can be completely described by a second-order tensor $\bm{\sigma}$, which depends linearly on the unit vector $\mathbf{n}$. This article defines the principle, derives the equilibrium equations, and explains their physical meaning.
+\end{abstract}
+
+\section{Introduction}
+In continuum mechanics, stress is the internal force transmitted within a material. While forces act on surfaces, the Cauchy stress tensor defines their intensity and direction at a point. Understanding this principle allows us to connect the physical idea of internal forces with a rigorous mathematical framework.
+
+\section{Cauchy’s Stress Principle}
+Consider an arbitrary volume element within a deformable body. The internal forces acting across any surface with unit normal vector $\mathbf{n}$ are described by the \textit{traction vector} $\mathbf{t}(\mathbf{n})$. Cauchy’s stress principle states:
+\begin{equation}
+    \mathbf{t}(\mathbf{n}) = \bm{\sigma} \, \mathbf{n}
+\end{equation}
+where $\bm{\sigma}$ is the \textit{Cauchy stress tensor}, a $3\times 3$ second-order tensor whose components $\sigma_{ij}$ represent the force in the $i$-direction acting on a face with outward normal in the $j$-direction.
+
+\subsection{Physical Meaning}
+The traction vector $\mathbf{t}(\mathbf{n})$ depends linearly on $\mathbf{n}$, and the stress tensor encapsulates all possible tractions on all possible orientations through a single point.
+
+\section{Symmetry of the Stress Tensor}
+By conservation of angular momentum for an infinitesimal element, it can be shown that:
+\begin{equation}
+    \sigma_{ij} = \sigma_{ji}
+\end{equation}
+This reduces the number of independent components from $9$ to $6$.
+
+\section{Derivation of the Equilibrium Equations}
+Consider a differential cube of size $\Delta x \times \Delta y \times \Delta z$ with density $\rho$ and subjected to body forces $\mathbf{b}$ (force per unit mass). Applying Newton’s second law in the absence of acceleration (static equilibrium), we have:
+\begin{equation}
+    \frac{\partial \sigma_{ij}}{\partial x_j} + \rho b_i = 0
+\end{equation}
+where $i = 1,2,3$ and Einstein summation convention is used over repeated indices.  
+These are the \textit{static equilibrium equations}.
+
+\section{Example: 1D Rod in Tension}
+For a prismatic bar under axial load $P$, the only non-zero stress component is $\sigma_{xx}$, which is constant along the length if the load is uniformly distributed and the bar is in static equilibrium.
+
+\section{Applications}
+\begin{itemize}
+    \item Stress analysis in structural members.
+    \item Basis for finite element formulation in solid mechanics.
+    \item Derivation of more advanced balance laws in continuum mechanics.
+\end{itemize}
+
+\section{Conclusion}
+Cauchy’s Stress Principle provides the bridge between physical forces acting inside a body and the mathematics needed to describe them. The equilibrium equations play a central role, forming the basis for both analytical and numerical approaches in solving mechanics problems.
+
+\section*{References}
+\begin{thebibliography}{9}
+
+\bibitem{fish2007}
+Fish, J., \& Belytschko, T. (2007). \textit{A First Course in Finite Elements}. John Wiley \& Sons.
+
+\bibitem{hjelmstad2005}
+Hjelmstad, K. D. (2005). \textit{Fundamentals of Structural Mechanics} (2nd ed.). Springer.
+
+\end{thebibliography}
+
+\end{document}
